@@ -122,7 +122,7 @@ INDEX_API_KEY=gsk-xxx
 2. install dependencies
 
 ```shell
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 3. start api server

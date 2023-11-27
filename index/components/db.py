@@ -8,7 +8,10 @@ db = Database()
 
 def init_db():
     database_url = os.getenv("DATABASE_URL")
+    print("database_url: ", database_url)
     url = urlparse(database_url)
+    print("url: ", url)
+    print("url.hostname: ", url.password)
 
     db.bind(
         provider=url.scheme,
@@ -16,9 +19,11 @@ def init_db():
         user=url.username,
         password=url.password,
         database=url.path[1:],
-        sslmode='require',
-        options='endpoint=ep-twilight-queen-56021949'
+        # sslmode='require',
+        # options='endpoint=ep-twilight-queen-56021949'
     )
+
+    print("db.bind success")
     db.generate_mapping(create_tables=True)
 
     set_sql_debug(True)
